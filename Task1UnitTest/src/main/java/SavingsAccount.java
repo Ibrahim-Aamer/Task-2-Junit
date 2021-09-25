@@ -24,38 +24,39 @@ public class SavingsAccount extends Account
 	 * 
 	 * @param float deposit amount 
 	 */
-	public void makeDeposit(float deposit) 
+	public String makeDeposit(float deposit) 
 	{
 		if( deposit > 0 ) 
 		{
 			balance += deposit;
 			
-			this.printStatement(deposit);
-
+			return this.printStatement(deposit);
 		}
 		else 
 		{
-			System.out.println("INVALID DEPOSIT AMOUNT !");
+			 return "INVALID DEPOSIT AMOUNT !";
 		}
 		
 	}
 	
 	/**
 	 * 
-	 * @param float withrawing amount
+	 * @param float withdrawing amount
 	 */
-	public void makeWithdrawal(float amount) 
+	public String makeWithdrawal(float amount) 
 	{
+		
 		//Withdrawal wont proceed if amount exceeds balance
 		if( amount <= this.balance ) 
 		{
+			
 			balance -= amount; //amount deducted
 			
-			this.printStatement(amount);
+			return this.printStatement(amount);
 		}
 		else 
 		{
-			System.out.println("TRANSACTION FAILED ! \n (Amount exceeds current Balance)\n");
+		    return "TRANSACTION FAILED ! \n (Amount exceeds current Balance)\n";
 		}
 	}
 	
@@ -80,10 +81,10 @@ public class SavingsAccount extends Account
 	{
 		if( balance >= 20000 ) 
 		{
-			float zakat = ( (balance*(float)2.5)/100 );
+			float zakat = this.calculateZakat();
 			
 			
-			System.out.println("Total Zakat deducted : "  + Float.toString(this.calculateZakat()) + " PKR" + '\n');
+			//System.out.println("Total Zakat deducted : "  + Float.toString(this.calculateZakat()) + " PKR" + '\n');
 			return zakat;
 		}
 		else 

@@ -13,15 +13,6 @@ public class Account
 	 */
 	public Account(User user, int initDeposit) 
 	{
-		NumCnt = NumCnt + 1; //incrementing account no# at each new creation
-		
-		accountNum = NumCnt; //Assigning NumCnt to accountNum
-		
-		dateCreated = new Date();//Getting system date and time
-		
-		Name = user.getName();  //Getting user name from user object
-		
-		balance = initDeposit;//setting initial deposit	
 		
 	}
 	
@@ -59,19 +50,20 @@ public class Account
 			+  "Transaction Amount : " + Float.toString(transactionAmount) + '\n'
 			+  "Remaining Balance  : " + Float.toString(balance) + '\n'
 			+  "Transaction Time   : " + transactionTime + '\n' 
-			+  user.displayDetails() + '\n'
 		    +  "--------------------------------------------------\n"	;
 			
 			return ret;
 			
 	}
 	
-	public void makeDeposit(float deposit) 
+	public String makeDeposit(float deposit) 
 	{
+		return null;
 	}
 
-	public void makeWithdrawal(float amount) 
+	public String makeWithdrawal(float amount) 
 	{
+		return null;
 	}
 	
 	/**

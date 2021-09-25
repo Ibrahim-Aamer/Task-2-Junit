@@ -25,7 +25,7 @@ public class CheckingAccount extends Account
 	 * 
 	 * @param float deposit amount 
 	 */
-	public void makeDeposit(float deposit) 
+	public String makeDeposit(float deposit) 
 	{
 		if( deposit > 0 ) 
 		{
@@ -33,11 +33,11 @@ public class CheckingAccount extends Account
 			balance -= transactionFees; //deducting transaction fees
 			totalDeductions += transactionFees;//adding in total transaction fees taken
 		
-			this.printStatement(deposit);
+			return this.printStatement(deposit);
 		}
 		else 
 		{
-			System.out.println("INVALID DEPOSIT AMOUNT !");
+			 return "INVALID DEPOSIT AMOUNT !";
 		}
 		
 	}
@@ -46,7 +46,7 @@ public class CheckingAccount extends Account
 	 * 
 	 * @param float withdrawing amount
 	 */
-	public void makeWithdrawal(float amount) 
+	public String makeWithdrawal(float amount) 
 	{
 		//Withdrawal can proceed uptil account is -5000 in debt
 		if( this.balance-amount >= -5000) 
@@ -56,11 +56,11 @@ public class CheckingAccount extends Account
 			totalDeductions += transactionFees;//adding in total transaction fees taken
 		
 			
-			this.printStatement(amount);
+			return this.printStatement(amount);
 		}
 		else 
 		{
-			System.out.println("TRANSACTION FAILED ! \n (Max debt reached)\n");
+			return "TRANSACTION FAILED ! \n (Max debt reached)\n";
 		}
 		
 	}

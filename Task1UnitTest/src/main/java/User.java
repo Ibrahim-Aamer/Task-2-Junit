@@ -9,6 +9,8 @@ public class User
 	 * Construct a user object
 	 * @param uName
 	 * @param date of birth
+	 * @param phNum
+	 * @param Addr
 	 */
 	public User(String uName, String dob, String phNum, String addr ) 
 	{
